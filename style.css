@@ -1,0 +1,50 @@
+html {
+  background: #f2f1f4;
+  color: #19171c;
+}
+
+.description {
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease-out, opacity 0.3s ease, visibility 0s 0.5s;
+}
+
+.title.active + .description {
+  visibility: visible;
+  max-height: 1000px;
+  opacity: 1;
+  transition: max-height 0.5s ease-in, opacity 0.3s ease-in;
+}
+
+.title.active + .description {
+  display: block;
+}
+
+.title::before {
+  content: "+";
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.title.active::before {
+  content: "−";
+}
+
+.bg-red {
+  background-color: #da5d5d;
+}
+
+.bg-blue {
+  background-color: #479aec;
+}
+
+.title:hover {
+  filter: brightness(0.85);
+  cursor: pointer;
+}
+
+.title {
+  transition: background-color 0.3s ease;
+}
