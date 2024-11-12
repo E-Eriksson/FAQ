@@ -15,6 +15,9 @@ fetch("https://jsonplaceholder.typicode.com/posts")
     const accordion = document.querySelector(".accordion");
 
     data.forEach((item) => {
+      const accordionItem = document.createElement("div");
+      accordionItem.className = "accordion-item";
+
       const titleDiv = document.createElement("div");
       titleDiv.className = "title";
       titleDiv.textContent = item.title;
@@ -27,13 +30,15 @@ fetch("https://jsonplaceholder.typicode.com/posts")
 
       titleDiv.addEventListener("click", toggle);
 
-      accordion.appendChild(titleDiv);
-      accordion.appendChild(descriptionDiv);
+      accordionItem.appendChild(titleDiv);
+      accordionItem.appendChild(descriptionDiv);
 
-      document.querySelectorAll(".accordion .title").forEach((title, index) => {
-        // jag använde det här då nth-child inte ville funka för mig
-        title.classList.add(index % 2 === 0 ? "bg-red" : "bg-blue");
-      });
+      accordion.appendChild(accordionItem);
+
+      // jag använde det här innan nth-child inte ville funka för mig
+      //    document.querySelectorAll(".accordion .title").forEach((title, index) => {
+      //    title.classList.add(index % 2 === 0 ? "bg-red" : "bg-blue");
+      //  });
     });
   })
   .catch((error) => console.error("Error fetching data:", error));
