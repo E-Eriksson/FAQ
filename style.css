@@ -13,7 +13,7 @@ html {
 
 .title.active + .description {
   visibility: visible;
-  max-height: 1000px;
+  max-height: 500px;
   opacity: 1;
   transition: max-height 0.5s ease-in, opacity 0.3s ease-in;
 }
@@ -45,6 +45,10 @@ html {
   cursor: pointer;
 }
 
-.title {
-  transition: background-color 0.3s ease;
+.accordion-item:nth-child(odd) .title {
+  background-color: #479aec;
+}
+
+.accordion-item:nth-child(even) .title {
+  background-color: #da5d5d;
 }
